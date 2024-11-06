@@ -1,4 +1,4 @@
-const TCS34725ColorBlock = "#C0C0C0";
+const TCS34725ColorBlock = "#c0c0c0";
 
 Blockly.Blocks["uno_tcs34725_read"] = {
   init: function () {
