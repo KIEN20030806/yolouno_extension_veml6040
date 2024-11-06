@@ -1,22 +1,8 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="ÁNH SÁNG" colour="#ae00ae" icon="palette">
-    <!-- Block đọc tất cả giá trị màu, độ sáng và nhiệt độ màu -->
-    <block type="color_sensor_read_all">
-      <value name="RED">
-        <field name="VALUE">Đỏ</field>
-      </value>
-      <value name="GREEN">
-        <field name="VALUE">Xanh Lá</field>
-      </value>
-      <value name="BLUE">
-        <field name="VALUE">Xanh Dương</field>
-      </value>
-      <value name="LUX">
-        <field name="VALUE">Độ Sáng</field>
-      </value>
-      <value name="CCT">
-        <field name="VALUE">Nhiệt Độ Màu</field>
-      </value>
-    </block>
+    <block type="color_sensor_read_color" />
+    <block type="color_sensor_detect_color" />
+    <block type="color_sensor_read_lux" />
+    <block type="color_sensor_read_cct" />
   </category>
 </xml>
