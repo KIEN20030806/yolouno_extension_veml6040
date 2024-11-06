@@ -1,8 +1,8 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="MÀU" colour="#ae00ae" icon="palette">
-    <block type="uno_tcs34725_read" />
-    <block type="uno_tcs34725_detect" />
-    <block type="uno_tcs34725_read_lux" />
-    <block type="uno_tcs34725_read_cct" />
+    <block type="color_sensor_read_color" />
+    <block type="color_sensor_detect_color" />
+    <block type="color_sensor_read_lux" />
+    <block type="color_sensor_read_cct" />
   </category>
 </xml>
