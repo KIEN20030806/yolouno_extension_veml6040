@@ -25,9 +25,24 @@ Blockly.Blocks['color_sensor_read_color'] = {
   }
 };
 
+// Blockly.Python['color_sensor_read_color'] = function(block) {
+//   var color = block.getFieldValue('COLOR');
+//   var code = 'color_sensor.get_' + color + '()';
+//   return [code, Blockly.Python.ORDER_ATOMIC];
+// };
 Blockly.Python['color_sensor_read_color'] = function(block) {
   var color = block.getFieldValue('COLOR');
-  var code = 'color_sensor.get_' + color + '()';
+  var code = '';
+
+  // Tạo mã lệnh phù hợp tùy vào lựa chọn của người dùng
+  if (color === 'LUX') {
+    code = 'color_sensor.get_lux()';
+  } else if (color === 'CCT') {
+    code = 'color_sensor.get_cct()';
+  } else {
+    code = 'color_sensor.get_' + color.toLowerCase() + '()';
+  }
+
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
