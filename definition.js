@@ -80,6 +80,7 @@ Blockly.Python['color_sensor_detect_color'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
+
 // Khối đọc giá trị độ sáng (Lux)
 Blockly.Blocks['color_sensor_read_lux'] = {
   init: function() {
