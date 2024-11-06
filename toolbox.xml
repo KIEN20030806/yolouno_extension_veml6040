@@ -3,5 +3,6 @@
     <block type="uno_tcs34725_read" />
     <block type="uno_tcs34725_detect" />
     <block type="uno_tcs34725_read_lux" />
+    <block type="uno_tcs34725_read_cct" />
   </category>
 </xml>

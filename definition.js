@@ -61,6 +61,18 @@ Blockly.Blocks["uno_tcs34725_read_lux"] = {
   },
 };
 
+Blockly.Blocks["uno_tcs34725_read_cct"] = {
+  init: function () {
+    this.jsonInit({
+      colour: TCS34725ColorBlock,
+      tooltip: "",
+      message0: "cảm biến màu sắc đọc giá trị nhiệt độ",
+      output: "Number",
+      helpUrl: "",
+    });
+  },
+};
+
 Blockly.Python["uno_tcs34725_read"] = function (block) {
   var RGB = block.getFieldValue("RGB");
   // TODO: Assemble Python into code variable.
@@ -80,6 +92,15 @@ Blockly.Python["uno_tcs34725_detect"] = function (block) {
 };
 
 Blockly.Python["uno_tcs34725_read_lux"] = function (block) {
+  var RGB = block.getFieldValue("RGB");
+  // TODO: Assemble Python into code variable.
+  Blockly.Python.definitions_['import_tcs34725'] = 'from tcs34725 import *';
+  Blockly.Python.definitions_['init_tcs34725'] = 'tcs34725 = ColorSensorVEML6040()';
+  var code = "tcs34725.read_color('" + RGB + "')";
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python["uno_tcs34725_read_cct"] = function (block) {
   var RGB = block.getFieldValue("RGB");
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_['import_tcs34725'] = 'from tcs34725 import *';
