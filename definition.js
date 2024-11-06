@@ -55,12 +55,7 @@ Blockly.Blocks["uno_tcs34725_read_lux"] = {
       colour: TCS34725ColorBlock,
       tooltip: "",
       message0: "cảm biến màu sắc đọc giá trị ánh sáng",
-      args0: [
-        {
-          type: "field_dropdown",
-          name: "LUX",
-        }
-      ],
+      name: "LUX",
       output: "Number",
       helpUrl: "",
     });
@@ -73,12 +68,7 @@ Blockly.Blocks["uno_tcs34725_read_cct"] = {
       colour: TCS34725ColorBlock,
       tooltip: "",
       message0: "cảm biến màu sắc đọc giá trị nhiệt độ",
-      args0: [
-        {
-          type: "field_dropdown",
-          name: "CCT",
-        }
-      ],
+      name: "CCT",
       output: "Number",
       helpUrl: "",
     });
