@@ -25,7 +25,7 @@ Blockly.Blocks['color_sensor_read_color'] = {
 
 Blockly.Python['color_sensor_read_color'] = function(block) {
   var color = block.getFieldValue('COLOR');
-  var code = 'color_sensor.get_' + color + '()';
+  var code = 'color_sensor.get_' + color.toLowerCase() + '()';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
@@ -97,9 +97,9 @@ Blockly.Blocks['color_sensor_read_cct'] = {
 };
 
 Blockly.Python['color_sensor_read_cct'] = function(block) {
-  var code = 'color_sensor.get_cct()'; // offset có thể được điều chỉnh
+  var code = 'color_sensor.get_cct()';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Thêm import thư viện ColorSensorVEML6040
-Blockly.Python.definitions_['import_color_sensor'] = 'from color_sensor import ColorSensorVEML6040';
+// Import thư viện ColorSensorVEML6040 một lần
+Blockly.Python.definitions_['import_color_sensor'] = 'from color_sensor import ColorSensorVEML6040\ncolor_sensor = ColorSensorVEML6040()';
