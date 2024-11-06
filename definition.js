@@ -1,23 +1,23 @@
-// Khối đọc giá trị ánh sáng RGB
+// Khối đọc giá trị màu sắc RGB
 Blockly.Blocks['color_sensor_read_color'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_color",
-      "message0": "cảm biến ánh sáng đọc giá trị %1",
+      "message0": "cảm biến màu sắc đọc giá trị %1",
       "args0": [
         {
           "type": "field_dropdown",
           "name": "COLOR",
           "options": [
-            ["đỏ", "RED"],
-            ["xanh lá", "GREEN"],
-            ["xanh dương", "BLUE"]
+            ["Đỏ", "RED"],
+            ["Xanh lá", "GREEN"],
+            ["Xanh dương", "BLUE"]
           ]
         }
       ],
       "output": "Number",
       "colour": "#ae00ae",
-      "tooltip": "Đọc giá trị ánh sáng RGB từ cảm biến",
+      "tooltip": "Đọc giá trị màu sắc RGB từ cảm biến",
       "helpUrl": ""
     });
   }
@@ -29,29 +29,29 @@ Blockly.Python['color_sensor_read_color'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Khối phát hiện ánh sáng
+// Khối phát hiện màu sắc
 Blockly.Blocks['color_sensor_detect_color'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_detect_color",
-      "message0": "cảm biến ánh sáng phát hiện màu %1",
+      "message0": "cảm biến màu sắc phát hiện màu %1",
       "args0": [
         {
           "type": "field_dropdown",
           "name": "DETECT_COLOR",
           "options": [
-            ["trắng", "white"],
-            ["đen", "black"],
-            ["đỏ", "red"],
-            ["xanh lá", "green"],
-            ["xanh dương", "blue"],
-            ["vàng", "yellow"]
+            ["Trắng", "white"],
+            ["Đen", "black"],
+            ["Đỏ", "red"],
+            ["Xanh lá", "green"],
+            ["Xanh dương", "blue"],
+            ["Vàng", "yellow"]
           ]
         }
       ],
       "output": "Boolean",
       "colour": "#ae00ae",
-      "tooltip": "Phát hiện ánh sáng cụ thể",
+      "tooltip": "Phát hiện màu sắc cụ thể",
       "helpUrl": ""
     });
   }
@@ -68,7 +68,7 @@ Blockly.Blocks['color_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_lux",
-      "message0": "cảm biến ánh sáng đọc giá trị độ sáng",
+      "message0": "cảm biến màu sắc đọc giá trị độ sáng",
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị độ sáng (Lux)",
@@ -87,7 +87,7 @@ Blockly.Blocks['color_sensor_read_cct'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_cct",
-      "message0": "cảm biến ánh sáng đọc giá trị nhiệt độ màu",
+      "message0": "cảm biến màu sắc đọc giá trị nhiệt độ màu",
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị nhiệt độ màu (CCT)",
