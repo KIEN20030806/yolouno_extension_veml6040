@@ -1,6 +1,6 @@
 {
     "name": "Cảm biến màu sắc",
-    "description": "Thư viện cho module cảm biến màu sắc TCS34725",
+    "description": "Thư viện cho module cảm biến ánh sáng veml6040",
     "libs": [
         "color_sensor.py"
     ],
