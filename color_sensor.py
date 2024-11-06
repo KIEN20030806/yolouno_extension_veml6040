@@ -42,7 +42,7 @@ _VEML6040_GSENS_320MS    = 0.03146
 _VEML6040_GSENS_640MS    = 0.01573
 _VEML6040_GSENS_1280MS   = 0.007865
 
-#chuyển đổi màu RGB thành màu HSV(màu sắc, độ băo hoa, độ sáng)
+#chuyển đổi màu RGB thành màu HSV(ánh sáng, độ băo hoa, độ sáng)
 def rgb2hsv(r, g, b):
     r = float(r/65535)
     g = float(g/65535)

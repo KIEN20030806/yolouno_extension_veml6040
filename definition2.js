@@ -5,7 +5,7 @@ Blockly.Blocks["uno_veml6040_read"] = {
     this.jsonInit({
       colour: veml6040ColorBlock,
       tooltip: "",
-      message0: "cảm biến màu sắc đọc giá trị %1",
+      message0: "cảm biến ánh sáng đọc giá trị %1",
       args0: [
         {
           type: "field_dropdown",
@@ -28,7 +28,7 @@ Blockly.Blocks["uno_veml6040_detect"] = {
     this.jsonInit({
       colour: veml6040ColorBlock,
       tooltip: "",
-      message0: "cảm biến màu sắc phát hiện màu %1",
+      message0: "cảm biến ánh sáng phát hiện màu %1",
       args0: [
         {
           type: "field_dropdown",
@@ -54,7 +54,7 @@ Blockly.Blocks["uno_veml6040_read_lux"] = {
     this.jsonInit({
       colour: veml6040ColorBlock,
       tooltip: "",
-      message0: "cảm biến màu sắc đọc giá trị ánh sáng",
+      message0: "cảm biến ánh sáng đọc giá trị ánh sáng",
       name: "LUX",
       output: "Number",
       helpUrl: "",
@@ -67,7 +67,7 @@ Blockly.Blocks["uno_veml6040_read_cct"] = {
     this.jsonInit({
       colour: veml6040ColorBlock,
       tooltip: "",
-      message0: "cảm biến màu sắc đọc giá trị nhiệt độ",
+      message0: "cảm biến ánh sáng đọc giá trị nhiệt độ",
       name: "CCT",
       output: "Number",
       helpUrl: "",

@@ -1,9 +1,9 @@
-// Khối đọc giá trị màu sắc RGB
+// Khối đọc giá trị ánh sáng RGB
 Blockly.Blocks['color_sensor_read_color'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_color",
-      "message0": "cảm biến màu sắc đọc giá trị %1",
+      "message0": "cảm biến ánh sáng đọc giá trị %1",
       "args0": [
         {
           "type": "field_dropdown",
@@ -17,7 +17,7 @@ Blockly.Blocks['color_sensor_read_color'] = {
       ],
       "output": "Number",
       "colour": "#ae00ae",
-      "tooltip": "Đọc giá trị màu sắc RGB từ cảm biến",
+      "tooltip": "Đọc giá trị ánh sáng RGB từ cảm biến",
       "helpUrl": ""
     });
   }
@@ -29,12 +29,12 @@ Blockly.Python['color_sensor_read_color'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Khối phát hiện màu sắc
+// Khối phát hiện ánh sáng
 Blockly.Blocks['color_sensor_detect_color'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_detect_color",
-      "message0": "cảm biến màu sắc phát hiện màu %1",
+      "message0": "cảm biến ánh sáng phát hiện màu %1",
       "args0": [
         {
           "type": "field_dropdown",
@@ -51,7 +51,7 @@ Blockly.Blocks['color_sensor_detect_color'] = {
       ],
       "output": "Boolean",
       "colour": "#ae00ae",
-      "tooltip": "Phát hiện màu sắc cụ thể",
+      "tooltip": "Phát hiện ánh sáng cụ thể",
       "helpUrl": ""
     });
   }
@@ -68,7 +68,7 @@ Blockly.Blocks['color_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_lux",
-      "message0": "cảm biến màu sắc đọc giá trị độ sáng",
+      "message0": "cảm biến ánh sáng đọc giá trị độ sáng",
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị độ sáng (Lux)",
@@ -87,7 +87,7 @@ Blockly.Blocks['color_sensor_read_cct'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_cct",
-      "message0": "cảm biến màu sắc đọc giá trị nhiệt độ màu",
+      "message0": "cảm biến ánh sáng đọc giá trị nhiệt độ màu",
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị nhiệt độ màu (CCT)",
