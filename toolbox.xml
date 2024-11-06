@@ -1,5 +1,5 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="MÀU" colour="#ae00ae" icon="palette">
+  <category name="ÁNH SÁNG" colour="#ae00ae" icon="palette">
     <block type="color_sensor_read_color" />
     <block type="color_sensor_detect_color" />
     <block type="color_sensor_read_lux" />
