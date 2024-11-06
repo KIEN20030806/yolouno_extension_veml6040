@@ -9,9 +9,11 @@ Blockly.Blocks['color_sensor_read_color'] = {
           "type": "field_dropdown",
           "name": "COLOR",
           "options": [
-            ["Đỏ", "RED"],
-            ["Xanh lá", "GREEN"],
-            ["Xanh dương", "BLUE"]
+            ["đỏ", "RED"],
+            ["xanh lá", "GREEN"],
+            ["xanh dương", "BLUE"],
+            ["độ sáng màu", "LUX"],
+            ["nhiệt độ màu", "CCT"]
           ]
         }
       ],
