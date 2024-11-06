@@ -98,7 +98,7 @@ Blockly.Python["uno_tcs34725_read_lux"] = function (block) {
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_['import_color_sensor'] = 'from color_sensor import *';
   Blockly.Python.definitions_['init_color_sensor'] = 'tcs34725 = ColorSensorVEML6040()';
-  var code = "tcs34725.get_lux('')";
+  var code = "tcs34725.get_lux('" + LUX + "')";
   return [code, Blockly.Python.ORDER_NONE];
 };
 
@@ -107,6 +107,6 @@ Blockly.Python["uno_tcs34725_read_cct"] = function (block) {
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_['import_'] = 'from color_sensor import *';
   Blockly.Python.definitions_['init_color_sensor'] = 'tcs34725 = ColorSensorVEML6040()';
-  var code = "tcs34725.get_cct('')";
+  var code = "tcs34725.get_cct('" + CCT + "')";
   return [code, Blockly.Python.ORDER_NONE];
 };
