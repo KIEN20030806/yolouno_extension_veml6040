@@ -40,12 +40,12 @@ Blockly.Blocks['color_sensor_detect_color'] = {
           "type": "field_dropdown",
           "name": "DETECT_COLOR",
           "options": [
-            ["Trắng", "white"],
-            ["Đen", "black"],
-            ["Đỏ", "red"],
-            ["Xanh lá", "green"],
-            ["Xanh dương", "blue"],
-            ["Vàng", "yellow"]
+            ["trắng", "white"],
+            ["đen", "black"],
+            ["đỏ", "red"],
+            ["xanh lá", "green"],
+            ["xanh dương", "blue"],
+            ["vàng", "yellow"]
           ]
         }
       ],
