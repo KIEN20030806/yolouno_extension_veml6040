@@ -1,5 +1,5 @@
 {
-    "name": "Cảm biến màu sắc",
+    "name": "Cảm biến ánh sáng",
     "description": "Thư viện cho module cảm biến ánh sáng veml6040",
     "libs": [
         "color_sensor.py"
