@@ -49,6 +49,18 @@ Blockly.Blocks["uno_tcs34725_detect"] = {
   },
 };
 
+Blockly.Blocks["uno_tcs34725_read_lux"] = {
+  init: function () {
+    this.jsonInit({
+      colour: TCS34725ColorBlock,
+      tooltip: "",
+      message0: "cảm biến màu sắc đọc giá trị ánh sáng",
+      output: "Number",
+      helpUrl: "",
+    });
+  },
+};
+
 Blockly.Python["uno_tcs34725_read"] = function (block) {
   var RGB = block.getFieldValue("RGB");
   // TODO: Assemble Python into code variable.

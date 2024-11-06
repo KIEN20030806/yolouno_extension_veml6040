@@ -2,5 +2,6 @@
   <category name="CB MÀU" colour="#c0c0c0" icon="palette">
     <block type="uno_tcs34725_read" />
     <block type="uno_tcs34725_detect" />
+    <block type="uno_tcs34725_read_lux" />
   </category>
 </xml>
