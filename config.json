@@ -1,0 +1,13 @@
+{
+    "name": "Cảm biến màu sắc",
+    "description": "Thư viện cho module cảm biến màu sắc TCS34725",
+    "libs": [
+        "color_sensor.py"
+    ],
+    "blocks": [
+        "definition.js"
+    ],
+    "toolbox": "toolbox.xml",
+    "languages": {},
+    "poster": "poster.png"
+}
