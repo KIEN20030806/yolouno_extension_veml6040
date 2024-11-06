@@ -55,6 +55,12 @@ Blockly.Blocks["uno_tcs34725_read_lux"] = {
       colour: TCS34725ColorBlock,
       tooltip: "",
       message0: "cảm biến màu sắc đọc giá trị ánh sáng",
+      args0: [
+        {
+          type: "field_dropdown",
+          name: "LUX",
+        }
+      ],
       output: "Number",
       helpUrl: "",
     });
@@ -67,6 +73,12 @@ Blockly.Blocks["uno_tcs34725_read_cct"] = {
       colour: TCS34725ColorBlock,
       tooltip: "",
       message0: "cảm biến màu sắc đọc giá trị nhiệt độ",
+      args0: [
+        {
+          type: "field_dropdown",
+          name: "CCT",
+        }
+      ],
       output: "Number",
       helpUrl: "",
     });
@@ -92,19 +104,19 @@ Blockly.Python["uno_tcs34725_detect"] = function (block) {
 };
 
 Blockly.Python["uno_tcs34725_read_lux"] = function (block) {
-  var RGB = block.getFieldValue("RGB");
+  var LUX = block.getFieldValue("LUX");
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_['import_tcs34725'] = 'from tcs34725 import *';
   Blockly.Python.definitions_['init_tcs34725'] = 'tcs34725 = ColorSensorVEML6040()';
-  var code = "tcs34725.read_color('" + RGB + "')";
+  var code = "tcs34725.read_color('" + LUX + "')";
   return [code, Blockly.Python.ORDER_NONE];
 };
 
 Blockly.Python["uno_tcs34725_read_cct"] = function (block) {
-  var RGB = block.getFieldValue("RGB");
+  var CCT = block.getFieldValue("CCT");
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_['import_tcs34725'] = 'from tcs34725 import *';
   Blockly.Python.definitions_['init_tcs34725'] = 'tcs34725 = ColorSensorVEML6040()';
-  var code = "tcs34725.read_color('" + RGB + "')";
+  var code = "tcs34725.read_color('" + CCT + "')";
   return [code, Blockly.Python.ORDER_NONE];
 };
