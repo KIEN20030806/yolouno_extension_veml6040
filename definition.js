@@ -36,7 +36,7 @@ Blockly.Python['veml6040_sensor_read_color'] = function(block) {
     code = 'veml6040_sensor.get_' + color.toLowerCase() + '()';
   }
 
-  Blockly.Python.definitions_['import_veml6040_sensor'] = 'from veml6040_sensor import ColorSensorVEML6040';
+  Blockly.Python.definitions_['import_veml6040_sensor'] = 'from veml6040_sensor import *';
   
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
