@@ -45,7 +45,7 @@ Blockly.Blocks['veml6040_sensor_detect_color'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_detect_color",
-      "message0": "cảm biến VEML6040 phát hiện màu %1",
+      "message0": "cảm biến VEML6040 phát hiện %1",
       "args0": [
         {
           "type": "field_dropdown",
