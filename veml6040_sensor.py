@@ -60,6 +60,7 @@ def rgb2hsv(r, g, b):
             b: (r - g) / d+4,
         }[high]
         h /= 6
+        
     return {'hue':h*360,'sat':s, 'val':v}
 
 class VEML6040Sensor:
@@ -131,10 +132,8 @@ class VEML6040Sensor:
     def classify_hue(self):
         hues = {"red": 0, "yellow": 60, "green": 120, "cyan": 180, "blue": 240, "magenta": 300}
         min_brightness = 0
-
         # Đọc giá trị HSV
         d = self.readHSV()
-        
         # Xử lý nhận diện màu
         if d['val'] > min_brightness:
             key, val = min(hues.items(), key=lambda x: min(360 - abs(d['hue'] - x[1]), abs(d['hue'] - x[1])))
