@@ -25,11 +25,6 @@ Blockly.Blocks['color_sensor_read_color'] = {
   }
 };
 
-// Blockly.Python['color_sensor_read_color'] = function(block) {
-//   var color = block.getFieldValue('COLOR');
-//   var code = 'color_sensor.get_' + color + '()';
-//   return [code, Blockly.Python.ORDER_ATOMIC];
-// };
 Blockly.Python['color_sensor_read_color'] = function(block) {
   var color = block.getFieldValue('COLOR');
   var code = '';
@@ -80,16 +75,15 @@ Blockly.Python['color_sensor_detect_color'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-
-// Khối đọc giá trị độ sáng (Lux)
+// Khối đọc giá trị độ rọi màu (Lux)
 Blockly.Blocks['color_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_lux",
-      "message0": "cảm biến màu sắc đọc giá trị độ sáng",
+      "message0": "cảm biến màu sắc đọc giá trị độ rọi màu",
       "output": "Number",
       "colour": "#ae00ae",
-      "tooltip": "Đọc giá trị độ sáng (Lux)",
+      "tooltip": "Đọc giá trị độ rọi màu",
       "helpUrl": ""
     });
   }
