@@ -1,7 +1,7 @@
-Blockly.Blocks['veml6040_sensor _read_color'] = {
+Blockly.Blocks['veml6040_sensor_read_color'] = {
   init: function() {
     this.jsonInit({
-      "type": "veml6040_sensor _read_color",
+      "type": "veml6040_sensor_read_color",
       "message0": "cảm biến màu sắc đọc giá trị %1",
       "args0": [
         {
@@ -24,27 +24,27 @@ Blockly.Blocks['veml6040_sensor _read_color'] = {
   }
 };
 
-Blockly.Python['veml6040_sensor _read_color'] = function(block) {
+Blockly.Python['veml6040_sensor_read_color'] = function(block) {
   var color = block.getFieldValue('COLOR');
   var code = '';
 
   if (color === 'LUX') {
-    code = 'veml6040_sensor .get_lux()';
+    code = 'veml6040_sensor.get_lux()';
   } else if (color === 'CCT') {
-    code = 'veml6040_sensor .get_cct()';
+    code = 'veml6040_sensor.get_cct()';
   } else {
-    code = 'veml6040_sensor .get_' + color.toLowerCase() + '()';
+    code = 'veml6040_sensor.get_' + color.toLowerCase() + '()';
   }
 
-  Blockly.Python.definitions_['import_veml6040_sensor '] = 'from veml6040_sensor  import ColorSensorVEML6040';
+  Blockly.Python.definitions_['import_veml6040_sensor'] = 'from veml6040_sensorimport ColorSensorVEML6040';
   
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-Blockly.Blocks['veml6040_sensor _detect_color'] = {
+Blockly.Blocks['veml6040_sensor_detect_color'] = {
   init: function() {
     this.jsonInit({
-      "type": "veml6040_sensor _detect_color",
+      "type": "veml6040_sensor_detect_color",
       "message0": "cảm biến màu sắc phát hiện màu %1",
       "args0": [
         {
@@ -68,16 +68,16 @@ Blockly.Blocks['veml6040_sensor _detect_color'] = {
   }
 };
 
-Blockly.Python['veml6040_sensor _detect_color'] = function(block) {
+Blockly.Python['veml6040_sensor_detect_color'] = function(block) {
   var detectColor = block.getFieldValue('DETECT_COLOR');
-  var code = '(veml6040_sensor .classify_hue(hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}) == "' + detectColor + '")';
+  var code = '(veml6040_sensor.classify_hue(hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}) == "' + detectColor + '")';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-Blockly.Blocks['veml6040_sensor _read_lux'] = {
+Blockly.Blocks['veml6040_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
-      "type": "veml6040_sensor _read_lux",
+      "type": "veml6040_sensor_read_lux",
       "message0": "cảm biến màu sắc đọc giá trị độ rọi màu (lux)", 
       "output": "Number",
       "colour": "#ae00ae",
@@ -87,15 +87,15 @@ Blockly.Blocks['veml6040_sensor _read_lux'] = {
   }
 };
 
-Blockly.Python['veml6040_sensor _read_lux'] = function(block) {
-  var code = 'veml6040_sensor .get_lux()'; 
+Blockly.Python['veml6040_sensor_read_lux'] = function(block) {
+  var code = 'veml6040_sensor.get_lux()'; 
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-Blockly.Blocks['veml6040_sensor _read_cct'] = {
+Blockly.Blocks['veml6040_sensor_read_cct'] = {
   init: function() {
     this.jsonInit({
-      "type": "veml6040_sensor _read_cct",
+      "type": "veml6040_sensor_read_cct",
       "message0": "cảm biến màu sắc đọc giá trị nhiệt độ màu",
       "output": "Number",
       "colour": "#ae00ae",
@@ -105,9 +105,9 @@ Blockly.Blocks['veml6040_sensor _read_cct'] = {
   }
 };
 
-Blockly.Python['veml6040_sensor _read_cct'] = function(block) {
-  var code = 'veml6040_sensor .get_cct()'; 
+Blockly.Python['veml6040_sensor_read_cct'] = function(block) {
+  var code = 'veml6040_sensor.get_cct()'; 
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-Blockly.Python.definitions_['import_veml6040_sensor '] = 'from veml6040_sensor  import ColorSensorVEML6040';
+Blockly.Python.definitions_['import_veml6040_sensor'] = 'from veml6040_sensor import ColorSensorVEML6040';
