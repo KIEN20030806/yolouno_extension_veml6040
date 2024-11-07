@@ -12,7 +12,7 @@ Blockly.Blocks['color_sensor_read_color'] = {
             ["đỏ", "RED"],
             ["xanh lá", "GREEN"],
             ["xanh dương", "BLUE"],
-            ["độ rọi màu (lux)", "LUX"],  // Chỉnh sửa tên hiển thị ở đây
+            ["độ rọi màu lux", "LUX"], // Hiển thị "lux" viết thường
             ["nhiệt độ màu", "CCT"]
           ]
         }
@@ -31,15 +31,16 @@ Blockly.Python['color_sensor_read_color'] = function(block) {
 
   // Tạo mã lệnh phù hợp tùy vào lựa chọn của người dùng
   if (color === 'LUX') {
-    code = 'color_sensor.get_lux()';  // Đảm bảo sử dụng dấu ngoặc ở đây
+    code = 'color_sensor.get_lux()';
   } else if (color === 'CCT') {
-    code = 'color_sensor.get_cct()';  // Đảm bảo sử dụng dấu ngoặc ở đây
+    code = 'color_sensor.get_cct()';
   } else {
-    code = 'color_sensor.get_' + color.toLowerCase() + '()'; // Đảm bảo tất cả đều có dấu ngoặc
+    code = 'color_sensor.get_' + color.toLowerCase() + '()';
   }
 
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
 
 // Khối phát hiện màu sắc
 Blockly.Blocks['color_sensor_detect_color'] = {
