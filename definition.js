@@ -12,7 +12,7 @@ Blockly.Blocks['color_sensor_read_color'] = {
             ["đỏ", "RED"],
             ["xanh lá", "GREEN"],
             ["xanh dương", "BLUE"],
-            ["độ rọi màu (Lux)", "LUX"],  // Chỉnh sửa tên hiển thị ở đây
+            ["độ rọi màu (lux)", "LUX"],  // Chỉnh sửa tên hiển thị ở đây
             ["nhiệt độ màu", "CCT"]
           ]
         }
