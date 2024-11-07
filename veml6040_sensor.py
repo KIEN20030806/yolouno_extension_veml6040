@@ -42,7 +42,7 @@ _VEML6040_GSENS_320MS    = 0.03146
 _VEML6040_GSENS_640MS    = 0.01573
 _VEML6040_GSENS_1280MS   = 0.007865
 
-def RGB2HSV(r, g, b):
+def rgb2hsv(r, g, b):
     r = float(r/65535)
     g = float(g/65535)
     b = float(b/65535)
@@ -166,7 +166,7 @@ class VEML6040Sensor:
 
     def read_hsv(self):
         d = self.read_rgb()
-        return RGB2HSV(d['red'],d['green'],d['blue'])
+        return rgb2hsv(d['red'],d['green'],d['blue'])
 
 
 veml6040_sensor  = VEML6040Sensor()
