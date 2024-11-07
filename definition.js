@@ -12,7 +12,7 @@ Blockly.Blocks['color_sensor_read_color'] = {
             ["đỏ", "RED"],
             ["xanh lá", "GREEN"],
             ["xanh dương", "BLUE"],
-            ["độ rọi màu lux", "LUX"], // Hiển thị "lux" viết thường
+            ["độ rọi màu (lux)", "LUX"],  // Đổi thành "độ rọi màu (lux)"
             ["nhiệt độ màu", "CCT"]
           ]
         }
@@ -81,7 +81,7 @@ Blockly.Blocks['color_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "color_sensor_read_lux",
-      "message0": "cảm biến màu sắc đọc giá trị độ rọi màu lux", // Sửa thông điệp cho rõ ràng
+      "message0": "cảm biến màu sắc đọc giá trị độ rọi màu (lux)", // Đổi thông điệp thành "độ rọi màu (lux)"
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị độ rọi màu lux",
