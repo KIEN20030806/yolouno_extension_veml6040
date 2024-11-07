@@ -42,7 +42,7 @@ _VEML6040_GSENS_320MS    = 0.03146
 _VEML6040_GSENS_640MS    = 0.01573
 _VEML6040_GSENS_1280MS   = 0.007865
 
-def rgb2hsv(r, g, b):
+def RGB2HSV(r, g, b):
     r = float(r/65535)
     g = float(g/65535)
     b = float(b/65535)
@@ -60,7 +60,7 @@ def rgb2hsv(r, g, b):
             b: (r - g) / d+4,
         }[high]
         h /= 6
-        
+
     return {'hue':h*360,'sat':s, 'val':v}
 
 class VEML6040Sensor:
@@ -133,7 +133,7 @@ class VEML6040Sensor:
         hues = {"red": 0, "yellow": 60, "green": 120, "cyan": 180, "blue": 240, "magenta": 300}
         min_brightness = 0
         # Đọc giá trị HSV
-        d = self.readHSV()
+        d = self.read_hsv()
         # Xử lý nhận diện màu
         if d['val'] > min_brightness:
             key, val = min(hues.items(), key=lambda x: min(360 - abs(d['hue'] - x[1]), abs(d['hue'] - x[1])))
@@ -142,7 +142,7 @@ class VEML6040Sensor:
             return None
 
 
-    def readRGB(self):
+    def read_rgb(self):
         red = self.get_red()
         green = self.get_green()
         blue = self.get_blue()
@@ -164,10 +164,9 @@ class VEML6040Sensor:
         
         return {"red":red,"green":green,"blue":blue,"white":white,"als":colour_ALS,"cct":colour_CCT}
 
-    def readHSV(self):
-        d = self.readRGB()
-        
-        return rgb2hsv(d['red'],d['green'],d['blue'])
+    def read_hsv(self):
+        d = self.read_rgb()
+        return RGB2HSV(d['red'],d['green'],d['blue'])
 
 
 veml6040_sensor  = VEML6040Sensor()
