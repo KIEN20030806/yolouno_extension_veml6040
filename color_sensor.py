@@ -66,7 +66,7 @@ def rgb2hsv(r, g, b):
 class ColorSensorVEML6040:
     #hàm khởi tạo cho lớp cảm biến
     def __init__(self, address=_VEML6040_I2C_ADDRESS):
-        self._i2c = machine.SoftI2C(scl=12, sda=11, freq=100000)
+        self._i2c = machine.SoftI2C(scl=12, sda=11, freq=400000)
         self._addr = address
         self._config = 0
 
