@@ -2,7 +2,7 @@
     "name": "Cảm biến ánh sáng và màu sắc VEML6040",
     "description": "Thư viện cho module cảm biến VEML6040",
     "libs": [
-        "veml6040_sensor .py"
+        "veml6040_sensor.py"
     ],
     "blocks": [
         "definition.js"
