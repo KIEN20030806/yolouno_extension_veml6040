@@ -110,4 +110,4 @@ Blockly.Python['veml6040_sensor_read_cct'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-Blockly.Python.definitions_['import_veml6040_sensor'] = 'from veml6040_sensor import ColorSensorVEML6040';
+Blockly.Python.definitions_['import_veml6040_sensor'] = 'from veml6040_sensor import VEML6040Sensor';

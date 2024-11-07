@@ -62,10 +62,10 @@ def rgb2hsv(r, g, b):
         h /= 6
     return {'hue':h*360,'sat':s, 'val':v}
 
-class ColorSensorVEML6040:
+class VEML6040Sensor:
 
     def __init__(self, address=_VEML6040_I2C_ADDRESS):
-        self._i2c = machine.SoftI2C(scl=12, sda=11, freq=100000)
+        self._i2c = machine.SoftI2C(scl=SCL_PIN, sda=SDA_PIN, freq=100000)
         self._addr = address
         self._config = 0
 
@@ -125,7 +125,6 @@ class ColorSensorVEML6040:
         cct = 4278.6 * pow(ccti, -1.2455)
 
         return cct
-    #return color temp
 
     def classify_hue(self, hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}, min_brightness=0):
         d = self.readHSV()
@@ -134,8 +133,6 @@ class ColorSensorVEML6040:
             return key
         else:
             return None
-    #Color classification based on hue value
-
 
     def readRGB(self):
         red = self.get_red()
@@ -165,6 +162,6 @@ class ColorSensorVEML6040:
         return rgb2hsv(d['red'],d['green'],d['blue'])
 
 
-veml6040_sensor  = ColorSensorVEML6040()
+veml6040_sensor  = VEML6040Sensor()
 
  
