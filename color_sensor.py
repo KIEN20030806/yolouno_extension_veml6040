@@ -171,32 +171,4 @@ class ColorSensorVEML6040:
 
 color_sensor = ColorSensorVEML6040()
 
-#simple test code
-
-#hàm này luôn chạy như CT chính để liên tục in ra giá trị màu mỗi giây
-if __name__ == '__main__':
-    while True:
-        #print('white: ', color_sensor.get_white())
-        print('red: ', color_sensor.get_red(), ' green: ', color_sensor.get_green(), ' blue: ', color_sensor.get_blue())
-        print(color_sensor._i2c.scan())
-        #print(color_sensor.get_lux(), color_sensor.get_cct(1))
-        #print(color_sensor.readRGB())
-        ### Example 1: Print Raw RGB Data
-        #data = color_sensor.readRGB() # Read the sensor (Colour space: Red Green Blue)
-        #print(data)
-        #red = data['red'] # extract the RGB information from data
-        #grn = data['green']
-        #blu = data['blue']
-
-        #print(str(blu) + " Blue  " + str(grn) + " Green  " + str(red) + " Red") # Print the data. Printing as BGR so the Thonny plot-colours match nicely :)
-
-        ### Example 2: Classify the colour being shown - eg. a fruit sorting machine
-        #data = color_sensor.readHSV() # Read the sensor (Colour space: Hue Saturation Value)
-        #hue = data['hue'] # extract the Hue information from data
-        #print(hue)
-
-    #   label = colourSensor.classifyHue() # Read the sensor again, this time classify the colour
-    #   print(str(label) + " Hue: " + str(hue)) # Show the label and the corresponding hue
-        time.sleep(1)
-
-    
+ 
