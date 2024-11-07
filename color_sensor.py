@@ -66,14 +66,14 @@ def rgb2hsv(r, g, b):
 class ColorSensorVEML6040:
     #hàm khởi tạo cho lớp cảm biến
     def __init__(self, address=_VEML6040_I2C_ADDRESS):
-        self._i2c = machine.SoftI2C(scl=12, sda=11, freq=400000)
+        self._i2c = machine.SoftI2C(scl=12, sda=11, freq=100000)
         self._addr = address
         self._config = 0
 
         if self._i2c.scan().count(address) == 0:
             raise Exception('Color sensor VEML6040 not found')
 
-        self.config(_VEML6040_IT_160MS + _VEML6040_AF_AUTO + _VEML6040_SD_ENABLE)
+        self.config(_VEML6040_IT_320MS + _VEML6040_AF_AUTO + _VEML6040_SD_ENABLE)
     #cấu hinh cam bien
     def config(self, config):
         self._i2c.writeto(self._addr, bytes([_COMMAND_CODE_CONF, config, 0]))
