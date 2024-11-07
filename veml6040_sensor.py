@@ -82,6 +82,7 @@ class VEML6040Sensor:
         self._i2c.writeto(self._addr, bytes([commandCode]))
         data = self._i2c.readfrom(self._addr, 2)
         data = data[0] + (data[1]<<8)
+
         return data
 
     def get_red(self):
@@ -113,6 +114,7 @@ class VEML6040Sensor:
                 ambientLightInLux = sensorValue * _VEML6040_GSENS_1280MS
         else:
             ambientLightInLux = -1
+
         return int(ambientLightInLux)
 
     def get_cct(self, offset):
@@ -126,39 +128,43 @@ class VEML6040Sensor:
 
         return cct
 
-    def classify_hue(self, hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}, min_brightness=0):
+    def classify_hue(self):
+        hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}, 
+        min_brightness=0,
         d = self.readHSV()
         if d['val'] > min_brightness:
             key, val = min(hues.items(), key=lambda x: min(360-abs(d['hue'] - x[1]),abs(d['hue'] - x[1]))) # nearest neighbour, but it wraps!
+            
             return key
         else:
+            
             return None
 
     def readRGB(self):
         red = self.get_red()
         green = self.get_green()
         blue = self.get_blue()
-        white = self.get_white()
-            
+        white = self.get_white() 
         # Generate the XYZ matrix based on https://www.vishay.com/docs/84331/designingveml6040.pdf
         colour_X = (-0.023249*red)+(0.291014*green)+(-0.364880*blue)
         colour_Y = (-0.042799*red)+(0.272148*green)+(-0.279591*blue)
         colour_Z = (-0.155901*red)+(0.251534*green)+(-0.076240*blue)
         colour_total = colour_X+colour_Y+colour_Z
         if colour_total == 0:
+            
             return {"red":None,"green":None,"blue":None,"white":None,"als":None,"cct":None}
         else:
             colour_x = colour_X / colour_total
-            colour_y = colour_Y / colour_total
-        
+            colour_y = colour_Y / colour_total  
         colour_n = (colour_x - 0.3320)/(0.1858 - colour_y)
         colour_CCT = 449.0*colour_n ** 3+3525.0*colour_n ** 2+6823.3*colour_n+5520.33
-        
         colour_ALS = green*(self._config&0x70)
+        
         return {"red":red,"green":green,"blue":blue,"white":white,"als":colour_ALS,"cct":colour_CCT}
 
     def readHSV(self):
         d = self.readRGB()
+        
         return rgb2hsv(d['red'],d['green'],d['blue'])
 
 
