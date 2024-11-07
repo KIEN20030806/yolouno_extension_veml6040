@@ -1,8 +1,8 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="ÁNH SÁNG" colour="#ae00ae" icon="palette">
-    <block type="color_sensor_read_color" />
-    <block type="color_sensor_detect_color" />
-    <!-- <block type="color_sensor_read_lux" />
-    <block type="color_sensor_read_cct" /> -->
+    <block type="veml6040_sensor _read_color" />
+    <block type="veml6040_sensor _detect_color" />
+    <!-- <block type="veml6040_sensor _read_lux" />
+    <block type="veml6040_sensor _read_cct" /> -->
   </category>
 </xml>

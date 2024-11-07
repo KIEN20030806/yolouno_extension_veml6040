@@ -169,6 +169,6 @@ class ColorSensorVEML6040:
         return rgb2hsv(d['red'],d['green'],d['blue'])
 
 
-color_sensor = ColorSensorVEML6040()
+veml6040_sensor  = ColorSensorVEML6040()
 
  
