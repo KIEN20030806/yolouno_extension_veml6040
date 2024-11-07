@@ -2,23 +2,23 @@ Blockly.Blocks['veml6040_sensor_read_color'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_read_color",
-      "message0": "cảm biến màu sắc đọc giá trị %1",
+      "message0": "cảm biến VEML6040 đọc %1",
       "args0": [
         {
           "type": "field_dropdown",
           "name": "COLOR",
           "options": [
-            ["độ sáng màu (lux)", "LUX"], 
-            ["đỏ", "RED"],
-            ["xanh lá", "GREEN"],
-            ["xanh dương", "BLUE"],
+            ["độ sáng (lux)", "LUX"], 
+            ["giá trị đỏ", "RED"],
+            ["giá trị xanh lá", "GREEN"],
+            ["giá trị xanh dương", "BLUE"],
             ["nhiệt độ màu", "CCT"]
           ]
         }
       ],
       "output": "Number",
       "colour": "#ae00ae",
-      "tooltip": "Đọc giá trị màu sắc RGB từ cảm biến",
+      "tooltip": "Đọc giá trị RGB từ cảm biến",
       "helpUrl": ""
     });
   }
@@ -45,18 +45,18 @@ Blockly.Blocks['veml6040_sensor_detect_color'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_detect_color",
-      "message0": "cảm biến màu sắc phát hiện màu %1",
+      "message0": "cảm biến VEML6040 phát hiện %1",
       "args0": [
         {
           "type": "field_dropdown",
           "name": "DETECT_COLOR",
           "options": [
-            ["trắng", "white"],
-            ["đen", "black"],
-            ["đỏ", "red"],
-            ["xanh lá", "green"],
-            ["xanh dương", "blue"],
-            ["vàng", "yellow"]
+            ["màu trắng", "white"],
+            ["màu đen", "black"],
+            ["màu đỏ", "red"],
+            ["màu xanh lá", "green"],
+            ["màu xanh dương", "blue"],
+            ["màu vàng", "yellow"]
           ]
         }
       ],
@@ -78,10 +78,10 @@ Blockly.Blocks['veml6040_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_read_lux",
-      "message0": "cảm biến màu sắc đọc giá trị độ sáng màu (lux)", 
+      "message0": "cảm biến VEML6040 đọc độ sáng (lux)", 
       "output": "Number",
       "colour": "#ae00ae",
-      "tooltip": "Đọc giá trị độ sáng màu lux",
+      "tooltip": "Đọc giá trị độ sáng lux",
       "helpUrl": ""
     });
   }
@@ -96,7 +96,7 @@ Blockly.Blocks['veml6040_sensor_read_cct'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_read_cct",
-      "message0": "cảm biến màu sắc đọc giá trị nhiệt độ màu",
+      "message0": "cảm biến VEML6040 đọc nhiệt độ màu",
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị nhiệt độ màu (CCT)",
