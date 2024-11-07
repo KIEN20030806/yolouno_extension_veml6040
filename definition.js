@@ -8,7 +8,7 @@ Blockly.Blocks['veml6040_sensor_read_color'] = {
           "type": "field_dropdown",
           "name": "COLOR",
           "options": [
-            ["độ rọi màu (lux)", "LUX"], 
+            ["độ sáng màu (lux)", "LUX"], 
             ["đỏ", "RED"],
             ["xanh lá", "GREEN"],
             ["xanh dương", "BLUE"],
@@ -78,10 +78,10 @@ Blockly.Blocks['veml6040_sensor_read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_read_lux",
-      "message0": "cảm biến màu sắc đọc giá trị độ rọi màu (lux)", 
+      "message0": "cảm biến màu sắc đọc giá trị độ sáng màu (lux)", 
       "output": "Number",
       "colour": "#ae00ae",
-      "tooltip": "Đọc giá trị độ rọi màu lux",
+      "tooltip": "Đọc giá trị độ sáng màu lux",
       "helpUrl": ""
     });
   }
