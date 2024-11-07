@@ -38,9 +38,11 @@ Blockly.Python['color_sensor_read_color'] = function(block) {
     code = 'color_sensor.get_' + color.toLowerCase() + '()';
   }
 
+  // Thêm thư viện khi cần thiết
+  Blockly.Python.definitions_['import_color_sensor'] = 'from color_sensor import ColorSensorVEML6040';
+  
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
-
 
 // Khối phát hiện màu sắc
 Blockly.Blocks['color_sensor_detect_color'] = {
