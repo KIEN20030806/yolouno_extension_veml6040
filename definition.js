@@ -8,7 +8,7 @@ Blockly.Blocks['veml6040_sensor_read_color'] = {
           "type": "field_dropdown",
           "name": "COLOR",
           "options": [
-            ["độ rọi màu (lux)", "LUX"],  // Đổi thành "độ rọi màu (lux)"
+            ["độ rọi màu (lux)", "LUX"], 
             ["đỏ", "RED"],
             ["xanh lá", "GREEN"],
             ["xanh dương", "BLUE"],

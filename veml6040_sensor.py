@@ -42,7 +42,6 @@ _VEML6040_GSENS_320MS    = 0.03146
 _VEML6040_GSENS_640MS    = 0.01573
 _VEML6040_GSENS_1280MS   = 0.007865
 
-#chuyển đổi màu RGB thành màu HSV(ánh sáng, độ băo hoa, độ sáng)
 def rgb2hsv(r, g, b):
     r = float(r/65535)
     g = float(g/65535)
@@ -64,7 +63,7 @@ def rgb2hsv(r, g, b):
     return {'hue':h*360,'sat':s, 'val':v}
 
 class ColorSensorVEML6040:
-    #hàm khởi tạo cho lớp cảm biến
+
     def __init__(self, address=_VEML6040_I2C_ADDRESS):
         self._i2c = machine.SoftI2C(scl=12, sda=11, freq=100000)
         self._addr = address
@@ -74,17 +73,17 @@ class ColorSensorVEML6040:
             raise Exception('Color sensor VEML6040 not found')
 
         self.config(_VEML6040_IT_160MS + _VEML6040_AF_AUTO + _VEML6040_SD_ENABLE)
-    #cấu hinh cam bien
+
     def config(self, config):
         self._i2c.writeto(self._addr, bytes([_COMMAND_CODE_CONF, config, 0]))
         self._config = config
-    #đọc dữ liệu từ cảm biến
+
     def read(self, commandCode):
         self._i2c.writeto(self._addr, bytes([commandCode]))
         data = self._i2c.readfrom(self._addr, 2)
         data = data[0] + (data[1]<<8)
         return data
-    #trả về 3 màu đỏ xanh xanh trắng
+
     def get_red(self):
         return self.read(_COMMAND_CODE_RED)
 
@@ -96,7 +95,7 @@ class ColorSensorVEML6040:
     
     def get_white(self):
         return self.read(_COMMAND_CODE_WHITE)
-    #hàm tính toán độ sáng
+
     def get_lux(self):
         sensorValue = self.read(_COMMAND_CODE_GREEN)
     
@@ -115,7 +114,7 @@ class ColorSensorVEML6040:
         else:
             ambientLightInLux = -1
         return int(ambientLightInLux)
-    #hàm tính toán nhiệt độ
+
     def get_cct(self, offset):
         red = self.get_red()
         green = self.get_green()
@@ -126,7 +125,8 @@ class ColorSensorVEML6040:
         cct = 4278.6 * pow(ccti, -1.2455)
 
         return cct
-    #phân loại màu dựa trên giá trị hue	
+    #return color temp
+
     def classify_hue(self, hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}, min_brightness=0):
         d = self.readHSV()
         if d['val'] > min_brightness:
@@ -134,11 +134,9 @@ class ColorSensorVEML6040:
             return key
         else:
             return None
-    
-    # Read colours from VEML6040
-    # Returns raw red, green and blue readings, ambient light [Lux] and colour temperature [K]
-    
-    #đọc và trả về giá trị RGB cùng với ánh sáng và nhiệt độ màu	
+    #Color classification based on hue value
+
+
     def readRGB(self):
         red = self.get_red()
         green = self.get_green()
@@ -156,14 +154,12 @@ class ColorSensorVEML6040:
             colour_x = colour_X / colour_total
             colour_y = colour_Y / colour_total
         
-        # Use McCamy formula
         colour_n = (colour_x - 0.3320)/(0.1858 - colour_y)
         colour_CCT = 449.0*colour_n ** 3+3525.0*colour_n ** 2+6823.3*colour_n+5520.33
         
-        # Calculate ambient light in Lux
         colour_ALS = green*(self._config&0x70)
         return {"red":red,"green":green,"blue":blue,"white":white,"als":colour_ALS,"cct":colour_CCT}
-    #hàm đọc giá trị RGB và chuyển chúng sang màu HSV
+
     def readHSV(self):
         d = self.readRGB()
         return rgb2hsv(d['red'],d['green'],d['blue'])
