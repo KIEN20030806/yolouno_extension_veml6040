@@ -178,6 +178,7 @@ if __name__ == '__main__':
     while True:
         #print('white: ', color_sensor.get_white())
         print('red: ', color_sensor.get_red(), ' green: ', color_sensor.get_green(), ' blue: ', color_sensor.get_blue())
+        print(color_sensor._i2c.scan())
         #print(color_sensor.get_lux(), color_sensor.get_cct(1))
         #print(color_sensor.readRGB())
         ### Example 1: Print Raw RGB Data
