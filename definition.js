@@ -1,4 +1,3 @@
-// Khối đọc giá trị màu sắc RGB
 Blockly.Blocks['veml6040_sensor _read_color'] = {
   init: function() {
     this.jsonInit({
@@ -9,10 +8,10 @@ Blockly.Blocks['veml6040_sensor _read_color'] = {
           "type": "field_dropdown",
           "name": "COLOR",
           "options": [
+            ["độ rọi màu (lux)", "LUX"],  // Đổi thành "độ rọi màu (lux)"
             ["đỏ", "RED"],
             ["xanh lá", "GREEN"],
             ["xanh dương", "BLUE"],
-            ["độ rọi màu (lux)", "LUX"],  // Đổi thành "độ rọi màu (lux)"
             ["nhiệt độ màu", "CCT"]
           ]
         }
@@ -29,7 +28,6 @@ Blockly.Python['veml6040_sensor _read_color'] = function(block) {
   var color = block.getFieldValue('COLOR');
   var code = '';
 
-  // Tạo mã lệnh phù hợp tùy vào lựa chọn của người dùng
   if (color === 'LUX') {
     code = 'veml6040_sensor .get_lux()';
   } else if (color === 'CCT') {
@@ -38,13 +36,11 @@ Blockly.Python['veml6040_sensor _read_color'] = function(block) {
     code = 'veml6040_sensor .get_' + color.toLowerCase() + '()';
   }
 
-  // Thêm thư viện khi cần thiết
   Blockly.Python.definitions_['import_veml6040_sensor '] = 'from veml6040_sensor  import ColorSensorVEML6040';
   
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Khối phát hiện màu sắc
 Blockly.Blocks['veml6040_sensor _detect_color'] = {
   init: function() {
     this.jsonInit({
@@ -78,12 +74,11 @@ Blockly.Python['veml6040_sensor _detect_color'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Khối đọc giá trị độ rọi màu (Lux)
 Blockly.Blocks['veml6040_sensor _read_lux'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor _read_lux",
-      "message0": "cảm biến màu sắc đọc giá trị độ rọi màu (lux)", // Đổi thông điệp thành "độ rọi màu (lux)"
+      "message0": "cảm biến màu sắc đọc giá trị độ rọi màu (lux)", 
       "output": "Number",
       "colour": "#ae00ae",
       "tooltip": "Đọc giá trị độ rọi màu lux",
@@ -93,11 +88,10 @@ Blockly.Blocks['veml6040_sensor _read_lux'] = {
 };
 
 Blockly.Python['veml6040_sensor _read_lux'] = function(block) {
-  var code = 'veml6040_sensor .get_lux()'; // Chỉnh lại lệnh gọi hàm
+  var code = 'veml6040_sensor .get_lux()'; 
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Khối đọc giá trị nhiệt độ màu (CCT)
 Blockly.Blocks['veml6040_sensor _read_cct'] = {
   init: function() {
     this.jsonInit({
@@ -112,9 +106,8 @@ Blockly.Blocks['veml6040_sensor _read_cct'] = {
 };
 
 Blockly.Python['veml6040_sensor _read_cct'] = function(block) {
-  var code = 'veml6040_sensor .get_cct()'; // offset có thể được điều chỉnh
+  var code = 'veml6040_sensor .get_cct()'; 
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-// Thêm import thư viện ColorSensorVEML6040
 Blockly.Python.definitions_['import_veml6040_sensor '] = 'from veml6040_sensor  import ColorSensorVEML6040';

@@ -13,7 +13,6 @@ _VEML6040_IT_80MS        = const(0x10)
 _VEML6040_IT_160MS       = const(0x20)
 _VEML6040_IT_320MS       = const(0x30)
 _VEML6040_IT_640MS       = const(0x40)
-
 _VEML6040_IT_1280MS      = const(0x50)
 
 _VEML6040_TRIG_DISABLE   = const(0x00)
@@ -63,9 +62,8 @@ def rgb2hsv(r, g, b):
     return {'hue':h*360,'sat':s, 'val':v}
 
 class ColorSensorVEML6040:
-
     def __init__(self, address=_VEML6040_I2C_ADDRESS):
-        self._i2c = machine.SoftI2C(scl=12, sda=11, freq=100000)
+        self._i2c = machine.SoftI2C(scl=machine.Pin(22), sda=machine.Pin(21))
         self._addr = address
         self._config = 0
 
@@ -77,7 +75,7 @@ class ColorSensorVEML6040:
     def config(self, config):
         self._i2c.writeto(self._addr, bytes([_COMMAND_CODE_CONF, config, 0]))
         self._config = config
-
+    
     def read(self, commandCode):
         self._i2c.writeto(self._addr, bytes([commandCode]))
         data = self._i2c.readfrom(self._addr, 2)
@@ -123,8 +121,8 @@ class ColorSensorVEML6040:
         ccti = (float(red) - float(blue)) / float(green)
         ccti = ccti + offset
         cct = 4278.6 * pow(ccti, -1.2455)
+
         return cct
-    #Read color temperature
 
     def classify_hue(self, hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}, min_brightness=0):
         d = self.readHSV()
@@ -133,8 +131,9 @@ class ColorSensorVEML6040:
             return key
         else:
             return None
-    #Color classification based on hue value
     
+    # Read colours from VEML6040
+    # Returns raw red, green and blue readings, ambient light [Lux] and colour temperature [K]
     def readRGB(self):
         red = self.get_red()
         green = self.get_green()
@@ -159,12 +158,38 @@ class ColorSensorVEML6040:
         # Calculate ambient light in Lux
         colour_ALS = green*(self._config&0x70)
         return {"red":red,"green":green,"blue":blue,"white":white,"als":colour_ALS,"cct":colour_CCT}
-    #hàm đọc giá trị RGB và chuyển chúng sang màu HSV
+    
     def readHSV(self):
         d = self.readRGB()
         return rgb2hsv(d['red'],d['green'],d['blue'])
 
 
-veml6040_sensor  = ColorSensorVEML6040()
+color_sensor = ColorSensorVEML6040()
 
- 
+#simple test code
+
+# if __name__ == '__main__':
+while True:
+    #print('white: ', color_sensor.get_white())
+    print('red: ', color_sensor.get_red(), ' green: ', color_sensor.get_green(), ' blue: ', color_sensor.get_blue())
+    #print(color_sensor.get_lux(), color_sensor.get_cct(1))
+    #print(color_sensor.readRGB())
+    ### Example 1: Print Raw RGB Data
+    #data = color_sensor.readRGB() # Read the sensor (Colour space: Red Green Blue)
+    #print(data)
+    #red = data['red'] # extract the RGB information from data
+    #grn = data['green']
+    #blu = data['blue']
+
+    #print(str(blu) + " Blue  " + str(grn) + " Green  " + str(red) + " Red") # Print the data. Printing as BGR so the Thonny plot-colours match nicely :)
+
+    ### Example 2: Classify the colour being shown - eg. a fruit sorting machine
+    #data = color_sensor.readHSV() # Read the sensor (Colour space: Hue Saturation Value)
+    #hue = data['hue'] # extract the Hue information from data
+    #print(hue)
+
+#   label = colourSensor.classifyHue() # Read the sensor again, this time classify the colour
+#   print(str(label) + " Hue: " + str(hue)) # Show the label and the corresponding hue
+    time.sleep(1)
+
+    
