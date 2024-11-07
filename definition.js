@@ -51,7 +51,7 @@ Blockly.Blocks['veml6040_sensor_detect_color'] = {
           "type": "field_dropdown",
           "name": "DETECT_COLOR",
           "options": [
-            ["màu trắng", "white"],
+            ["màu trắng", "white"], 
             ["màu đen", "black"],
             ["màu đỏ", "red"],
             ["màu xanh lá", "green"],
