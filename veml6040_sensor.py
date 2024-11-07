@@ -129,16 +129,19 @@ class VEML6040Sensor:
         return cct
 
     def classify_hue(self):
-        hues={"red":0,"yellow":60,"green":120,"cyan":180,"blue":240,"magenta":300}, 
-        min_brightness=0,
+        hues = {"red": 0, "yellow": 60, "green": 120, "cyan": 180, "blue": 240, "magenta": 300}
+        min_brightness = 0
+
+        # Đọc giá trị HSV
         d = self.readHSV()
+        
+        # Xử lý nhận diện màu
         if d['val'] > min_brightness:
-            key, val = min(hues.items(), key=lambda x: min(360-abs(d['hue'] - x[1]),abs(d['hue'] - x[1]))) # nearest neighbour, but it wraps!
-            
+            key, val = min(hues.items(), key=lambda x: min(360 - abs(d['hue'] - x[1]), abs(d['hue'] - x[1])))
             return key
         else:
-            
             return None
+
 
     def readRGB(self):
         red = self.get_red()
