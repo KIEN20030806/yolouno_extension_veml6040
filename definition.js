@@ -45,7 +45,7 @@ Blockly.Blocks['veml6040_sensor_detect_color'] = {
   init: function() {
     this.jsonInit({
       "type": "veml6040_sensor_detect_color",
-      "message0": "cảm biến VEML6040 phát hiện %1",
+      "message0": "cảm biến VEML6040 phát hiện màu %1",
       "args0": [
         {
           "type": "field_dropdown",
@@ -73,6 +73,7 @@ Blockly.Python['veml6040_sensor_detect_color'] = function(block) {
   var code = '(veml6040_sensor.Classify_Hue() == "' + detectColor + '")';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
 
 Blockly.Blocks['veml6040_sensor_read_lux'] = {
   init: function() {
