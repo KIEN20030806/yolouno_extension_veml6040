@@ -1,8 +1,9 @@
+from yolo_uno import *
 import machine, time
 from micropython import const
 from math import exp, isnan
 from utility import say
-#from setting import *
+from setting import *
 
 _VEML6040_I2C_ADDRESS    = const(0x10)
 
