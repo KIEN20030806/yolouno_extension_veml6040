@@ -8,6 +8,9 @@
         "definition.js"
     ],
     "toolbox": "toolbox.xml",
-    "languages": {},
+    "languages": {
+        "en": "languages/en.js",
+        "vi": "languages/vi.js"
+    },
     "poster": "anh_VEML6040.jpg"
 }
